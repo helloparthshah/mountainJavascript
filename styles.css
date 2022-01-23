@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *,
 html {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -204,6 +206,35 @@ input[type="radio"] {
   display: inline;
 }
 
+label{
+  color: white;
+}
+
 .f{
   color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.f div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.test label{
+  width: auto;
 }

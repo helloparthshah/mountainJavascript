@@ -17,11 +17,20 @@
     <button onclick="visualize(0)">Djikstra</button>
     <button onclick="visualize(1)">A*</button>
     <form class="f">
-      <input type="radio" id="exp" name="cost" value="exp" checked>
-      <label for="exp">exp</label>
-      <input type="radio" id="div" name="cost" value="div">
-      <label for="div">div</label>
+      <div>
+        <label for="exp">Exp</label>
+        <input type="radio" id="exp" name="cost" value="exp" checked>
+      </div>
+      <div>
+        <label for="div">Div</label>
+        <input type="radio" id="div" name="cost" value="div">
+      </div>
     </form>
+    <div class='test'>
+      <label for="seed">Seed:</label>
+      <input type="number" id="seed" name="seed" />
+      <button onclick="setSeed()">Set seed</button>
+    </div>
   </div>
 
   <!-- Create floating div bottom right corner -->

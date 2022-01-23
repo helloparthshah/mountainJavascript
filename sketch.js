@@ -49,6 +49,12 @@ function getRadioValue() {
   }
 }
 
+function setSeed() {
+  seed = document.getElementById("seed").value;
+  noiseSeed(seed);
+  grid = new Grid(200);
+}
+
 function visualize(i) {
   if (!grid.isFinding) {
     grid.isFinding = true;

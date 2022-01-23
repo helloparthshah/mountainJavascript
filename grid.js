@@ -1,7 +1,7 @@
 class Grid {
   constructor(n) {
     this.rows = n;
-    this.size = width / this.rows;
+    this.size = ceil(width / this.rows);
     this.cols = floor(height / this.size);
 
     this.start = createVector(floor(this.rows / 4), floor(this.cols / 2));
@@ -9,7 +9,7 @@ class Grid {
 
     this.isFinding = false;
     this.noiseFactor = 100
-    this.off = 0.02
+    this.off = 0.05
     this.nodes = [];
     let yoff = 0
     for (let i = 0; i < this.rows; i++) {
