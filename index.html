@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>algoVisualizer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <script src="grid.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+  <div id="nav">
+    <button onclick="reset()">Reset</button>
+    <button onclick="visualize(0)">Djikstra</button>
+    <button onclick="visualize(1)">A*</button>
+  </div>
+
+  <!-- Create floating div bottom right corner -->
+  <div class="floating">
+    <h1 id="cost">0.0</h1>
+    <h1 id="visited">0</h1>
+    <h1 id="time">0s</h1>
+  </div>
+  <div class='user-input'>
+    <textarea id="heu" style="height: 15vh; width: 36vw;"></textarea>
+  </div>
+  <div id="canvas"></div>
+</body>
+
+</html>
