@@ -231,7 +231,12 @@ class Grid {
           let alt = curNode.g + this.getCost(curNode, this.nodes[dx][dy], type);
           if (alt < this.nodes[dx][dy].g) {
             this.nodes[dx][dy].g = alt;
-            this.nodes[dx][dy].f = alt + this.heuristic(this.nodes[dx][dy], this.nodes[this.end.x][this.end.y]);
+            try {
+              this.nodes[dx][dy].f = alt + this.heuristic(this.nodes[dx][dy], this.nodes[this.end.x][this.end.y]);
+            } catch (error) {
+              alert(error);
+              return
+            }
             this.nodes[dx][dy].parent = curNode;
           }
           queue.push(this.nodes[dx][dy]);
