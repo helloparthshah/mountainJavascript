@@ -130,8 +130,11 @@ class Grid {
     }
   };
 
-  getCost = function (n0, n1) {
-    return pow(2, n1.height - n0.height)
+  getCost = function (n0, n1, type = 'exp') {
+    if (type == 'exp')
+      return pow(2, n1.height - n0.height)
+    else
+      return n1.height / (n0.height + 1)
   }
 
   showPath = async function (delay) {
@@ -154,7 +157,7 @@ class Grid {
     document.getElementById("visited").innerHTML = nVisited;
   };
 
-  dijkstraexp = async function (delay) {
+  dijkstraexp = async function (delay, type = 'exp') {
     var queue = [];
     this.nodes[this.start.x][this.start.y].g = 0;
     queue.push(this.nodes[this.start.x][this.start.y]);
@@ -180,7 +183,7 @@ class Grid {
           dy < this.cols &&
           !this.nodes[dx][dy].isWall
         ) {
-          let alt = curNode.g + this.getCost(curNode, this.nodes[dx][dy]);
+          let alt = curNode.g + this.getCost(curNode, this.nodes[dx][dy], type);
           if (alt < this.nodes[dx][dy].g) {
             this.nodes[dx][dy].g = alt;
             this.nodes[dx][dy].parent = curNode;
@@ -199,7 +202,7 @@ class Grid {
     return d
   }
 
-  astarexp = async function (delay) {
+  astarexp = async function (delay, type = 'exp') {
     var queue = [];
     this.nodes[this.start.x][this.start.y].g = 0;
     queue.push(this.nodes[this.start.x][this.start.y]);
@@ -225,7 +228,7 @@ class Grid {
           dy < this.cols &&
           !this.nodes[dx][dy].isWall
         ) {
-          let alt = curNode.g + this.getCost(curNode, this.nodes[dx][dy]);
+          let alt = curNode.g + this.getCost(curNode, this.nodes[dx][dy], type);
           if (alt < this.nodes[dx][dy].g) {
             this.nodes[dx][dy].g = alt;
             this.nodes[dx][dy].f = alt + this.heuristic(this.nodes[dx][dy], this.nodes[this.end.x][this.end.y]);

@@ -189,7 +189,7 @@ label {
   font-size: small;
 }
 
-.user-input{
+.user-input {
   position: absolute;
   bottom: 0;
   right: 32%;
@@ -197,4 +197,13 @@ label {
   outline: none;
   padding: 0;
   margin: 0;
+}
+
+input[type="radio"] {
+  appearance: radio;
+  display: inline;
+}
+
+.f{
+  color: white;
 }

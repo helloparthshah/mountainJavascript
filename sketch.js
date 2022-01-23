@@ -11,6 +11,8 @@ var h, w;
 
 var prevSearch = false;
 
+var type = 'exp'
+
 function preload() {
   e = document.getElementById("canvas");
   h = e.clientHeight;
@@ -38,21 +40,30 @@ function reset() {
   }
 }
 
+function getRadioValue() {
+  var ele = document.getElementsByName('cost');
+
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked)
+      type = ele[i].value;
+  }
+}
 
 function visualize(i) {
   if (!grid.isFinding) {
     grid.isFinding = true;
     grid.clr();
     eval(`var heuristic=${document.getElementById("heu").value}`);
+    getRadioValue();
     console.log(heuristic);
     grid.heuristic = heuristic;
     var startTime = performance.now()
     if (i == 0)
-      grid.dijkstraexp(0).then(() => {
+      grid.dijkstraexp(0, type).then(() => {
         grid.isFinding = false;
       });
     else if (i == 1)
-      grid.astarexp(0).then(() => {
+      grid.astarexp(0, type).then(() => {
         grid.isFinding = false;
       });
 
